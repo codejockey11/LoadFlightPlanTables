@@ -1,0 +1,58 @@
+regionAK~PA~ALASKA~~
+regionAL~K7~EASTERN~~
+regionAR~K4~SOUTHERN~~
+regionAZ~K2~SOUTHWEST~~
+regionCA~K2~SOUTHWEST~~
+regionCO~K2~SOUTHWEST~~
+regionCT~K6~NEW ENGLAND~~
+regionDE~K6~NEW ENGLAND~~
+regionFL~K7~EASTERN~~
+regionGA~K7~EASTERN~~
+regionHI~PH~HAWAII~~
+regionIA~K3~CENTRAL~~
+regionID~K1~NW MOUNTAINS~~
+regionIL~K5~GREAT LAKES~~
+regionIN~K5~GREAT LAKES~~
+regionK1~NW MOUNTAINS~~~
+regionK2~SOUTHWEST~~~
+regionK3~CENTRAL~~~
+regionK4~SOUTHERN~~~
+regionK5~GREAT LAKES~~~
+regionK6~NEW ENGLAND~~~
+regionK7~EASTERN~~~
+regionKS~K3~CENTRAL~~
+regionKY~K5~GREAT LAKES~~
+regionLA~K4~SOUTHERN~~
+regionMA~K6~NEW ENGLAND~~
+regionMD~K6~NEW ENGLAND~~
+regionME~K6~NEW ENGLAND~~
+regionMI~K5~GREAT LAKES~~
+regionMN~K3~CENTRAL~~
+regionMO~K3~CENTRAL~~
+regionMS~K7~EASTERN~~
+regionMT~K1~NW MOUNTAINS~~
+regionNC~K7~EASTERN~~
+regionND~K3~CENTRAL~~
+regionNE~K3~CENTRAL~~
+regionNH~K6~NEW ENGLAND~~
+regionNJ~K6~NEW ENGLAND~~
+regionNM~K2~SOUTHWEST~~
+regionNV~K2~SOUTHWEST~~
+regionNY~K6~NEW ENGLAND~~
+regionOH~K5~GREAT LAKES~~
+regionOK~K4~SOUTHERN~~
+regionOR~K1~NW MOUNTAINS~~
+regionPA~~ALASKA~~
+regionPH~~HAWAII~~
+regionRI~K6~NEW ENGLAND~~
+regionSC~K7~EASTERN~~
+regionSD~K3~CENTRAL~~
+regionTN~K7~EASTERN~~
+regionTX~K4~SOUTHERN~~
+regionUT~K2~SOUTHWEST~~
+regionVA~K6~NEW ENGLAND~~
+regionVT~K6~NEW ENGLAND~~
+regionWA~K1~NW MOUNTAINS~~
+regionWI~K5~GREAT LAKES~~
+regionWV~K6~NEW ENGLAND~~
+regionWY~K1~NW MOUNTAINS~~

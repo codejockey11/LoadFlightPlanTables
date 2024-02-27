@@ -1,0 +1,1164 @@
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>TIME /T 
+04:13 PM
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM Set the new effective date 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table -e "use aviation;UPDATE parameter SET value1='11/02/2023' WHERE name='effectiveDate';" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM Drop and recreate the session table 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<session.sql 
++------------------+----------+----------+-------------------------------------------------------------------+
+| Table            | Op       | Msg_type | Msg_text                                                          |
++------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.session | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.session | optimize | status   | OK                                                                |
++------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM Delete any temp items 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL "C:\Users\junk_\Documents\website\public_html\temp\*.html" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL "C:\Users\junk_\Documents\website\public_html\temp\*.pln" 
+Could Not Find C:\Users\junk_\Documents\website\public_html\temp\*.pln
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL "C:\Users\junk_\Documents\website\public_html\dTPPCS\cs\*.pdf" 
+Could Not Find C:\Users\junk_\Documents\website\public_html\dTPPCS\cs\*.pdf
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL "C:\Users\junk_\Documents\website\public_html\dTPPCS\dTPP\*.pdf" 
+Could Not Find C:\Users\junk_\Documents\website\public_html\dTPPCS\dTPP\*.pdf
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL "C:\Users\junk_\Documents\website\public_html\dTPPCS\compare_pdf\*.pdf" 
+Could Not Find C:\Users\junk_\Documents\website\public_html\dTPPCS\compare_pdf\*.pdf
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the account table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<accountBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<accountLoadBkup.sql 
++------------------+----------+----------+-------------------------------------------------------------------+
+| Table            | Op       | Msg_type | Msg_text                                                          |
++------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.account | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.account | optimize | status   | OK                                                                |
++------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the airplane table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<airplaneBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<airplaneLoadBkup.sql 
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.airplane | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.airplane | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the flight plan table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<flightPlanBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<flightPlanLoadBkup.sql 
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.flightplan | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.flightplan | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the checklist table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<checklistBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<checklistLoadBkup.sql 
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.checklist | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.checklist | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the logbook table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<logbookBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<logbookLoadBkup.sql 
++------------------+----------+----------+-------------------------------------------------------------------+
+| Table            | Op       | Msg_type | Msg_text                                                          |
++------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.logbook | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.logbook | optimize | status   | OK                                                                |
++------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dump the parameter table to a text file and reload 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<parameterBkup.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<parameterLoadBkup.sql 
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.parameter | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.parameter | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM Rename the backups to have date and time 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\account.txt" "account_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\airplane.txt" "airplane_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\flightPlan.txt" "flightPlan_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\checklist.txt" "checklist_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\logbook.txt" "logbook_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REN "C:\Users\junk_\Documents\LoadFlightPlanTables\parameter.txt" "parameter_20240103_16133099.txt" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM Move the backups to the backup directory 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\account*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\account_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\airplane*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\airplane_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\flightPlan*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\flightPlan_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\checklist*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\checklist_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\logbook*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\logbook_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>MOVE "C:\Users\junk_\Documents\LoadFlightPlanTables\parameter*.txt" "C:\Users\junk_\Documents\LoadFlightPlanTables\bkups\" 
+C:\Users\junk_\Documents\LoadFlightPlanTables\parameter_20240103_16133099.txt
+        1 file(s) moved.
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM aptLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>decompressor.exe "C:\Users\junk_\Downloads" "28DaySubscription*.zip" APT.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>aptLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<aptAirport.txt 1>aptAirportSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<aptRunway.txt 1>aptRunwaySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<aptRemark.txt 1>aptRemarkSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<aptAttended.txt 1>aptAttendedSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<aptArresting.txt 1>aptArrestingSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<apt.sql 
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.aptairport | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.aptairport | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.aptattended | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.aptattended | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.aptrunway | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.aptrunway | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.aptarresting | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.aptarresting | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.aptremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.aptremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL APT.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptAirport.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptRunway.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptRemark.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptAttended.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptArresting.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptairportSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptrunwaySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptremarkSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptattendedSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL aptarrestingSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM awosLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>awosLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<awosStation.txt 1>awosStationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<awosRemarks.txt 1>awosRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<awos.sql 
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.awosstation | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.awosstation | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.awosremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.awosremarks | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL AWOS.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awosStation.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awosRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awosStationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awosRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM cdrLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>cdrLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<cdrRoutes.txt 1>cdrRoutesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<cdr.sql 
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.cdrroutes | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.cdrroutes | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL CDR.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cdrRoutes.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cdrRoutesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM comLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>comLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<comStation.txt 1>comStationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<com.sql 
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.comstation | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.comstation | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL COM.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL comStation.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL comStationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM fixLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>decompressor.exe "C:\Users\junk_\Downloads" "28DaySubscription*.zip" FIX.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>fixLoader.exe
+PERSON
+GEORGETOWN
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<fixLocation.txt 1>fixLocationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<fixNavaid.txt 1>fixNavaidSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<fixIls.txt 1>fixIlsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<fixRemarks.txt 1>fixRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<fixCharting.txt 1>fixChartingSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<fix.sql 
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.fixlocation | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.fixlocation | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.fixnavaid | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.fixnavaid | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++-----------------+----------+----------+-------------------------------------------------------------------+
+| Table           | Op       | Msg_type | Msg_text                                                          |
++-----------------+----------+----------+-------------------------------------------------------------------+
+| aviation.fixils | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.fixils | optimize | status   | OK                                                                |
++-----------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.fixremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.fixremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.fixcharting | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.fixcharting | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL FIX.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixLocation.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixNavaid.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixIls.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixCharting.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixLocationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixNavaidSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixIlsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL fixChartingSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ilsLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>ilsLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsApproach.txt 1>ilsApproachSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsFrequency.txt 1>ilsFrequencySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsGlideslope.txt 1>ilsGlideslopeSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsDme.txt 1>ilsDmeSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsMarker.txt 1>ilsMarkerSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<ilsRemarks.txt 1>ilsRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<ils.sql 
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsapproach | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsapproach | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++-----------------+----------+----------+-------------------------------------------------------------------+
+| Table           | Op       | Msg_type | Msg_text                                                          |
++-----------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsdme | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsdme | optimize | status   | OK                                                                |
++-----------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsfrequency | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsfrequency | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++------------------------+----------+----------+-------------------------------------------------------------------+
+| Table                  | Op       | Msg_type | Msg_text                                                          |
++------------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsglideslope | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsglideslope | optimize | status   | OK                                                                |
++------------------------+----------+----------+-------------------------------------------------------------------+
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsmarker | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsmarker | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.ilsremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.ilsremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ILS.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsApproach.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsFrequency.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsGlideslope.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsDme.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsMarker.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsApproachSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsFrequencySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsGlideslopeSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsDmeSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsMarkerSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ilsRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM navLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>navLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<navNavaid.txt 1>navNavaidSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<navRemarks.txt 1>navRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<nav.sql 
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.navnavaid | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.navnavaid | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.navremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.navremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL NAV.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL navNavaid.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL navRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL navNavaidSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL navRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM awyLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awyFixs.txt 
+Could Not Find C:\Users\junk_\Documents\LoadFlightPlanTables\awyFixs.txt
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awyNavaids.txt 
+Could Not Find C:\Users\junk_\Documents\LoadFlightPlanTables\awyNavaids.txt
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<awyNavaids.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>awyLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<airway.txt 1>airwaySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<awy.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL AWY.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL airway.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL airwaySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM atsLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>atsLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<airway2.txt 1>airway2Sorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<ats.sql 
++-----------------+----------+----------+-------------------------------------------------------------------+
+| Table           | Op       | Msg_type | Msg_text                                                          |
++-----------------+----------+----------+-------------------------------------------------------------------+
+| aviation.airway | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.airway | optimize | status   | OK                                                                |
++-----------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL ATS.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL airway2.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL airway2Sorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awyFixs.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL awyNavaids.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM pjaLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>pjaLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pjaLocation.txt 1>pjaLocationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pjaTimes.txt 1>pjaTimesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pjaUsergroup.txt 1>pjaUserGroupSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pjaContact.txt 1>pjaContactSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pjaRemarks.txt 1>pjaRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<pja.sql 
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pjalocation | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pjalocation | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pjatimes | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pjatimes | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pjausergroup | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pjausergroup | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pjacontact | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pjacontact | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pjaremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pjaremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL PJA.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaLocation.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaTimes.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaUserGroup.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaContact.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaLocationSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaTimesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaUserGroupSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaContactSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pjaRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM pfrLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>pfrLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<pfrRoutes.txt 1>pfrRoutesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<pfr.sql 
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.pfrroutes | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.pfrroutes | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL PFR.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pfrRoutes.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL pfrRoutesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM starDpLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>starDpLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<starDpf.txt 1>starDpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<starDp.sql 
++-----------------+----------+----------+-------------------------------------------------------------------+
+| Table           | Op       | Msg_type | Msg_text                                                          |
++-----------------+----------+----------+-------------------------------------------------------------------+
+| aviation.stardp | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.stardp | optimize | status   | OK                                                                |
++-----------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL STARDP.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL starDpf.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL starDpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM twrLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>twrLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrTower.txt 1>twrTowerSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrHoursOfOp.txt 1>twrHoursOfOpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrFrequency.txt 1>twrFrequencySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrServices.txt 1>twrServicesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrRadars.txt 1>twrRadarsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrRemarks.txt 1>twrRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrSatellite.txt 1>twrSatelliteSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrAirspace.txt 1>twrAirspaceSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrAtis.txt 1>twrAtisSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<twr.sql 
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrtower | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrtower | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrairspace | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrairspace | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++------------------+----------+----------+-------------------------------------------------------------------+
+| Table            | Op       | Msg_type | Msg_text                                                          |
++------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twratis | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twratis | optimize | status   | OK                                                                |
++------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrfrequency | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrfrequency | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrhoursofop | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrhoursofop | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrradars | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrradars | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrsatellite | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrsatellite | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrservices | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrservices | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL TWR.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrTower.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrHoursOfOp.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrFrequency.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrServices.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrRadars.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrSatellite.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrAirspace.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrAtis.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrTowerSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrHoursOfOpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrFrequencySorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrServicesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrRadarsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrSatelliteSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrAirspaceSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrAtisSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM affLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ARTCC tower locations and frequencies 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>affLoader.exe
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+ZYL
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<twrFrequency2.txt 1>twrFrequency2Sorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<aff.sql 
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.twrfrequency | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.twrfrequency | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL AFF.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrFrequency2.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL twrFrequency2Sorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM cifpLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM input is cifp_*.zip 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>cifpLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<cifp.txt 1>cifpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<cifp.sql 
++---------------+----------+----------+-------------------------------------------------------------------+
+| Table         | Op       | Msg_type | Msg_text                                                          |
++---------------+----------+----------+-------------------------------------------------------------------+
+| aviation.cifp | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.cifp | optimize | status   | OK                                                                |
++---------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<cifpNavaids.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>cifpUpdater.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<cifpOut.txt 1>cifpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<cifp.sql 
++---------------+----------+----------+-------------------------------------------------------------------+
+| Table         | Op       | Msg_type | Msg_text                                                          |
++---------------+----------+----------+-------------------------------------------------------------------+
+| aviation.cifp | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.cifp | optimize | status   | OK                                                                |
++---------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL FAACIFP18.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifp.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpOut.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpNavaids1.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpNavaids2.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpNavaids3.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpNavaids4.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpFix.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpIls.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cifpAirport.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM csLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM input is DCS_*.zip 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>csLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<chartSupplement.txt 1>chartSupplementSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<cs.sql 
++--------------------------+----------+----------+-------------------------------------------------------------------+
+| Table                    | Op       | Msg_type | Msg_text                                                          |
++--------------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.chartsupplement | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.chartsupplement | optimize | status   | OK                                                                |
++--------------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL cs.xml 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL chartSupplement.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL chartSupplementSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dTPPLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM input is DDTPPE_*.zip 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>dTPPLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<dTPP.txt 1>dTPPSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<compares.txt 1>comparesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<dTPP.sql 
++---------------+----------+----------+-------------------------------------------------------------------+
+| Table         | Op       | Msg_type | Msg_text                                                          |
++---------------+----------+----------+-------------------------------------------------------------------+
+| aviation.dtpp | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.dtpp | optimize | status   | OK                                                                |
++---------------+----------+----------+-------------------------------------------------------------------+
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.compares | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.compares | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL dTPP.xml 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL dTPP.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL compares.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL dTPPSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL comparesSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM dofLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM input is DOF_*.zip 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>dofLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<obstacle.txt 1>dofSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<dof.sql 
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.obstacle | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.obstacle | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL DOF.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL obstacle.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL dofSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM maaLoader.exe 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>maaLoader.exe
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<maaBaseData.txt 1>maaBaseDataSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<maaTimesOfUse.txt 1>maaTimesOfUseSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000   0<maaUserGroup.txt 1>maaUserGroupSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<maaContact.txt 1>maaContactSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<maaNotams.txt 1>maaNotamsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>SORT /M 500000  0<maaRemarks.txt 1>maaRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<maa.sql 
++----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                | Op       | Msg_type | Msg_text                                                          |
++----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maabasedata | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maabasedata | optimize | status   | OK                                                                |
++----------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maapolycoord | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maapolycoord | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++-------------------+----------+----------+-------------------------------------------------------------------+
+| Table             | Op       | Msg_type | Msg_text                                                          |
++-------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maatimes | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maatimes | optimize | status   | OK                                                                |
++-------------------+----------+----------+-------------------------------------------------------------------+
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| Table                 | Op       | Msg_type | Msg_text                                                          |
++-----------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maausergroup | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maausergroup | optimize | status   | OK                                                                |
++-----------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maacontact | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maacontact | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
++--------------------+----------+----------+-------------------------------------------------------------------+
+| Table              | Op       | Msg_type | Msg_text                                                          |
++--------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maanotams | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maanotams | optimize | status   | OK                                                                |
++--------------------+----------+----------+-------------------------------------------------------------------+
++---------------------+----------+----------+-------------------------------------------------------------------+
+| Table               | Op       | Msg_type | Msg_text                                                          |
++---------------------+----------+----------+-------------------------------------------------------------------+
+| aviation.maaremarks | optimize | note     | Table does not support optimize, doing recreate + analyze instead |
+| aviation.maaremarks | optimize | status   | OK                                                                |
++---------------------+----------+----------+-------------------------------------------------------------------+
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>mysql.exe --login-path=batch --table  0<maaupdate.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL MAA.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaBaseData.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaPolyCoord.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaTimesOfUse.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaUserGroup.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaContact.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaNotams.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaRemarks.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaBaseDataSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaTimesOfUseSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaUserGroupSorted.txt  
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaContactSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaNotamsSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaRemarksSorted.txt 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>DEL maaupdate.sql 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM CFR Title 14 & 49 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>REM ===================================================================================== 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>CFR.exe ECFR-title14.xml 14 "C:\Users\junk_\Documents\website\public_html\cfr" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>CFR.exe ECFR-title49.xml 49 "C:\Users\junk_\Documents\website\public_html\cfr" 
+
+C:\Users\junk_\Documents\LoadFlightPlanTables>TIME /T 
+04:32 PM
+C:\Users\junk_\Documents\LoadFlightPlanTables>

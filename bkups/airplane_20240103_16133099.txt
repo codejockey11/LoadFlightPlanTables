@@ -1,0 +1,11 @@
+skunkle1105~N137SK~PA-28R-200~120~White,Red,Tan~/G~6,0.5~6,12~16,10.5~6,0.5~6,0.5~6,0.5~10.5~1603~84.2~50~95~15~24.5~230~80.5~0~118.1~50~142.8~0~0~0~0~0~0~0~0~2750~6~28.7~1025.7~76~200~+80.0 to +93.0 at 1800 lb. or less\
++82.0 to +93.0 at 2300 lb.\
++87.3 to +93.0 at 2650 lb.\
+\
+Item        Due      Period\
+Annual      7/5/2017 (12 months)\
+Transponder 7/5/2017 (24 months)\
+ELT         7/5/2017 (12 months)\
+Medical     7/5/2017 (24 months)\
+Static Pressure System\
+            7/5/2017 (24 months)

@@ -1,0 +1,51 @@
+stateALABAMA~AL~~~
+stateALASKA~AK~~~
+stateARIZONA~AZ~~~
+stateARKANSAS~AR~~~
+stateCALIFORNIA~CA~~~
+stateCOLORADO~CO~~~
+stateCONNECTICUT~CN~~~
+stateDELAWARE~DE~~~
+stateFLORIDA~FL~~~
+stateGEORGIA~GA~~~
+stateHAWAII~HI~~~
+stateIDAHO~ID~~~
+stateILLINOIS~IL~~~
+stateINDIANA~IN~~~
+stateIOWA~IO~~~
+stateKANSAS~KA~~~
+stateKENTUCKY~KY~~~
+stateLOUISIANA~LS~~~
+stateMAINE~ME~~~
+stateMARYLAND~MD~~~
+stateMASSACHUSETTS~MA~~~
+stateMICHIGAN~MI~~~
+stateMINNESOTA~MN~~~
+stateMISSISSIPPI~MS~~~
+stateMISSOURI~MO~~~
+stateMONTANA~MT~~~
+stateNEBRASKA~NE~~~
+stateNEVADA~NV~~~
+stateNEW HAMPSHIRE~NH~~~
+stateNEW JERSEY~NJ~~~
+stateNEW MEXICO~NM~~~
+stateNEW YORK~NY~~~
+stateNORTH CAROLINA~NC~~~
+stateNORTH DAKOTA~ND~~~
+stateOHIO~OH~~~
+stateOKLAHOMA~OK~~~
+stateOREGON~OR~~~
+statePENNSYLVANIA~PA~~~
+stateRHODE ISLAND~RI~~~
+stateSOUTH CAROLINA~SC~~~
+stateSOUTH DAKOTA~SD~~~
+stateTENNESSEE~TN~~~
+stateTEXAS~TX~~~
+stateUTAH~UT~~~
+stateVERMONT~VT~~~
+stateVIRGINIA~VA~~~
+stateWASHINGTON~WA~~~
+stateWEST VIRGINIA~WV~~~
+stateWINDSOR~CY~~~
+stateWISCONSIN~WI~~~
+stateWYOMING~WY~~~

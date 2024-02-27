@@ -1,0 +1,19 @@
+equip00~ Equipment~~~
+equip01~RVSM No GNSS, No RNAV Transponder with Mode C~/W~~
+equip02~RVSM RNAV, No GNSS Transponder with Mode C~/Z~~
+equip03~RVSM GNSS Transponder with Mode C~/L~~
+equip04~No RVSM No DME No Transponder~/X~~
+equip05~No RVSM No DME Transponder with no Mode C~/T~~
+equip06~No RVSM No DME Transponder with Mode C~/U~~
+equip07~No RVSM DME No Transponder~/D~~
+equip08~No RVSM DME Transponder with no Mode C~/B~~
+equip09~No RVSM DME Transponder with Mode C~/A~~
+equip10~No RVSM TACAN No Transponder~/M~~
+equip11~No RVSM TACAN Transponder with no Mode C~/N~~
+equip12~No RVSM TACAN Transponder with Mode C~/P~~
+equip13~No RVSM RNAV, no GNSS No Transponder~/Y~~
+equip14~No RVSM RNAV, no GNSS Transponder with no Mode C~/C~~
+equip15~No RVSM RNAV, no GNSS Transponder with Mode C~/I~~
+equip16~No RVSM GNSS No Transponder~/V~~
+equip17~No RVSM GNSS Transponder with no Mode C~/S~~
+equip18~No RVSM GNSS Transponder with Mode C~/G~~

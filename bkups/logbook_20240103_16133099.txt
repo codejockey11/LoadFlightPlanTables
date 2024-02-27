@@ -1,0 +1,8 @@
+skunkle1105~2017/02/16 12:36~KPKB KFFO~PA28R~N137SK~60~60~60~Landmark Jet Center~Bubba Johnson~3~0~10~1~Red Bird Greeny Goggles~30~1~Flight to Wright-Patterson Airbase for training \
+landings while using goggles
+skunkle1105~2017/02/17 12:36~KPKB KPKB~PA28R~N137SK~60~~~~~0~1~2~0~~~0~Route: KPKB KTZR KPKB.  VFR night flight to Bolton field and back.
+skunkle1105~2017/02/18 10:00~KPKB KPKB~PA28R~N137SK~30~~60~~Jack Johanson~5~0~4~1~~~0~Practiced landings while under the hood at KPKB.
+skunkle1105~2017/02/18 12:30~KPKB I18~PA28R~N137SK~45~~~~~0~0~2~0~~~0~Practice RNAV 4 into I18
+skunkle1105~2017/02/20 18:00~KPKB KPHD~PA28R~N137SK~30~~~~~0~0~1~0~~~0~Added location from distance and true course to LatLon class.
+skunkle1105~2017/05/05 12:50~~C172~~~~120~KOSU~~4~0~~2~Red Byrd~~0~Lesson for engine fail on takeoff and zero visibility takeoff.
+skunkle1105~2017/06/06 12:25~KPKB KVTA~PA28R~N137SK~90~~~~~0~0~2~0~~~0~Flight to Newark-Heath to see sister and nieces.  Was a nice day.
